@@ -1,0 +1,39 @@
+.user-info {
+    margin-top: 8rem;
+    display: flex;
+    justify-content: center;
+}
+
+.user-info h1 {
+    color: white;
+}
+
+.info-content {
+    background-color: white;
+    width: 350px;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.info-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    background-color: rgb(187, 142, 28);
+}
+
+.info-body {
+    display: flex;
+    justify-content: center;
+    color: black;
+}
+
+.info-body ul {
+    padding-left: 15px;
+}
+
+.info-body li {
+    margin-bottom: 5px;
+}
