@@ -5,10 +5,75 @@ import Button from '../Button/Button';
 import CardFooter from '../CardFooter/CardFooter';
 import './User.css';
 
+function Body({data}) {
+    return (
+        <ul>
+            {data.map((e, index) => {
+            return (
+                <li key={index}>
+                    {e.title + e.value}
+                    {e.children && <Body data={e.children} />}
+                </li>);
+            })}
+        </ul>
+    );
+}
+
 export default function User() {
-    const {id} = useParams()
-    const [user, loading] = useFetch(`https://jsonplaceholder.typicode.com/users/${id}`)
-        
+    const {id} = useParams();
+    const [user, loading] = useFetch(`https://jsonplaceholder.typicode.com/users/${id}`);
+
+    let name, username, email, phone, companyName, website, street, suite, city, zipcode;
+    if (user) {
+        ({name, username, email, phone, company: {name: companyName}, website, address: {street, suite, city, zipcode}} = user);
+    }
+
+    const data = [{
+        'title': 'Name: ',
+        'value': name, 
+        'children': []
+    }, {
+        'title': 'Username: ',
+        'value': username, 
+        'children': []
+    }, {
+        'title': 'Email: ', 
+        'value': email, 
+        'children': []
+    }, {
+        'title': 'Phone: ', 
+        'value': phone, 
+        'children': []
+    }, {
+        'title': 'Company: ', 
+        'value': companyName, 
+        'children': []
+    }, {
+        'title': 'Website: ', 
+        'value': website, 
+        'children': []
+    }, {
+        'title': 'Address: ', 
+        'value': '', 
+        'children': [{
+            'title': 'Street: ',
+            'value': street,
+            'children': []
+        }, {
+            'title': 'Suite: ',
+            'value': suite,
+            'children': []
+        }, {
+            'title': 'City: ',
+            'value': city,
+            'children': []
+        }, {
+            'title': 'Zipcode: ',
+            'value': zipcode,
+            'children': []
+        }]
+    }]
+
     return (
         <div className='user-info'>
             {loading && <h1>Loading...</h1>}
@@ -18,21 +83,7 @@ export default function User() {
                         <h2 style={{margin: 0}}>{user.name}</h2>    
                     </div>    
                     <div className="info-body">
-                        <ul>
-                            <li>Name: {user.name}</li>
-                            <li>Username: {user.username}</li>
-                            <li>Email: {user.email}</li>
-                            <li>Phone: {user.phone}</li>
-                            <li>Company: {user.company.name}</li>
-                            <li>Website: {user.website}</li>
-                            <li>Address:</li>
-                            <ul>
-                                <li>Street: {user.address.street}</li>
-                                <li>Suite: {user.address.suite}</li>
-                                <li>City: {user.address.city}</li>
-                                <li>Zipcode: {user.address.zipcode}</li>
-                            </ul>
-                        </ul>
+                        <Body data={data} />
                     </div>
                     <Button icon={<KeyboardReturn/> } text={'Return'} link={'/'} />
                     <CardFooter />
