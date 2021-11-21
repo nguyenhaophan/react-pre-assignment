@@ -86,7 +86,6 @@ export default function User() {
                         <Body data={data} />
                         <Button icon={<KeyboardReturn/> } text={'Return'} link={'/'} />
                     </div>
-                    {/* <Button icon={<KeyboardReturn/> } text={'Return'} link={'/'} /> */}
                     <CardFooter />
                 </div>            
             )}
