@@ -84,8 +84,9 @@ export default function User() {
                     </div>    
                     <div className="info-body">
                         <Body data={data} />
+                        <Button icon={<KeyboardReturn/> } text={'Return'} link={'/'} />
                     </div>
-                    <Button icon={<KeyboardReturn/> } text={'Return'} link={'/'} />
+                    {/* <Button icon={<KeyboardReturn/> } text={'Return'} link={'/'} /> */}
                     <CardFooter />
                 </div>            
             )}

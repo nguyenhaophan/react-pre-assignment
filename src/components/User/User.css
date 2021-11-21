@@ -9,9 +9,9 @@
 }
 
 .info-content {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; */
     background-color: white;
     width: 350px;
     height: 520px;
@@ -32,7 +32,9 @@
 .info-body {
     display: flex;
     justify-content: center;
+    align-items: center;
     color: black;
+    flex-direction: column;
 }
 
 .info-body ul {
