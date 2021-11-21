@@ -1,8 +1,9 @@
 import useFetch from '../../tool/useFetch';
-import { GitHub, InfoOutlined, LinkedIn } from '@mui/icons-material';
+import { InfoOutlined } from '@mui/icons-material';
 import { Container } from '@mui/material';
 import './Home.css';
-import { Link } from 'react-router-dom';
+import Button from '../Button/Button';
+import CardFooter from '../CardFooter/CardFooter';
 
 export default function Home() {
     const [users, loading] = useFetch('https://jsonplaceholder.typicode.com/users');
@@ -22,33 +23,11 @@ export default function Home() {
                         </div>
                         <div className="card-body">
                             <h2 className='name'>{user.name}</h2>
-                            <div className="username">@{user.username}</div>
-                            <div className="website">{user.website}</div>
-                            <Link to={`/user/${user.id}`} >
-                                <div className="button-box">
-                                    <InfoOutlined className="info"/>
-                                    More Detail
-                                </div>
-                            </Link>
+                            <div>@{user.username}</div>
+                            <div>{user.website}</div>
+                            <Button icon={<InfoOutlined/> } text={'More Detail'} link={`/user/${user.id}`} />
                         </div>
-                        <div className="card-footer">
-                            <a 
-                                className="icon"
-                                href="https://www.linkedin.com/in/hao-phan-06b628110/"
-                                target='_blank'
-                                rel="noreferrer"
-                            >
-                                <LinkedIn />
-                            </a>
-                            <a
-                                className="icon"
-                                href="https://github.com/nguyenhaophan/react-pre-assignment"
-                                target='_blank'
-                                rel="noreferrer"
-                            >
-                                <GitHub />
-                            </a>                                
-                        </div>
+                        <CardFooter />
                     </div>
                 ))}
             </div>

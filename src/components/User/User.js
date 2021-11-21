@@ -1,5 +1,8 @@
+import { KeyboardReturn } from '@mui/icons-material';
 import { useParams } from 'react-router';
 import useFetch from '../../tool/useFetch';
+import Button from '../Button/Button';
+import CardFooter from '../CardFooter/CardFooter';
 import './User.css';
 
 export default function User() {
@@ -16,21 +19,23 @@ export default function User() {
                     </div>    
                     <div className="info-body">
                         <ul>
-                            <li>name: {user.name}</li>
-                            <li>username: {user.username}</li>
-                            <li>email: {user.email}</li>
-                            <li>phone: {user.phone}</li>
-                            <li>company: {user.company.name}</li>
-                            <li>website: {user.website}</li>
-                            <li>address:</li>
+                            <li>Name: {user.name}</li>
+                            <li>Username: {user.username}</li>
+                            <li>Email: {user.email}</li>
+                            <li>Phone: {user.phone}</li>
+                            <li>Company: {user.company.name}</li>
+                            <li>Website: {user.website}</li>
+                            <li>Address:</li>
                             <ul>
-                                <li>street: {user.address.street}</li>
-                                <li>suite: {user.address.suite}</li>
-                                <li>city: {user.address.city}</li>
-                                <li>zipcode: {user.address.zipcode}</li>
+                                <li>Street: {user.address.street}</li>
+                                <li>Suite: {user.address.suite}</li>
+                                <li>City: {user.address.city}</li>
+                                <li>Zipcode: {user.address.zipcode}</li>
                             </ul>
                         </ul>
                     </div>
+                    <Button icon={<KeyboardReturn/> } text={'Return'} link={'/'} />
+                    <CardFooter />
                 </div>            
             )}
         </div>
