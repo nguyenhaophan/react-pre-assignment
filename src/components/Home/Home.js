@@ -1,9 +1,10 @@
-import useFetch from '../../tool/useFetch';
 import { InfoOutlined } from '@mui/icons-material';
 import { Container } from '@mui/material';
-import './Home.css';
+
+import useFetch from '../../tool/useFetch';
 import Button from '../Button/Button';
 import CardFooter from '../CardFooter/CardFooter';
+import './Home.css';
 
 export default function Home() {
     const [users, loading] = useFetch('https://jsonplaceholder.typicode.com/users');

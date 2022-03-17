@@ -1,4 +1,5 @@
 import { GitHub, LinkedIn } from '@mui/icons-material';
+
 import './CardFooter.css';
 
 export default function CardFooter() {

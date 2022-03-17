@@ -1,8 +1,9 @@
-import './App.css';
-import Home from './components/Home/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import Home from './components/Home/Home';
 import User from './components/User/User';
 import Nav from './components/Nav/Nav';
+import './App.css';
 
 function App() {
   return (
